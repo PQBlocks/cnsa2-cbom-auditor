@@ -1,0 +1,37 @@
+{
+  "id": "13c4496e",
+  "case_id": "scan-100-cryptography",
+  "implementation": "cryptography (PyPI, incumbent baseline)",
+  "version": "baseline",
+  "instance": "estate-100",
+  "parameters": {
+    "estate_size": 100,
+    "files": 11,
+    "warmup": false
+  },
+  "seed": "deterministic-estate-tile",
+  "run_index": 18,
+  "warmup": false,
+  "wall_clock_ms": 84.939,
+  "throughput_certs_per_sec": 1177.3,
+  "per_cert_amortized_ms": 0.849,
+  "success": true,
+  "result_summary": {
+    "files": 100,
+    "processes": 1
+  },
+  "peak_rss_mb": 365.8,
+  "timestamp": "2026-11-19T19:05:47.883Z",
+  "hardware_fingerprint": {
+    "cpu_model": "Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz",
+    "cpu_threads": 8,
+    "governor": "cpufreq-3497.917MHz",
+    "ram_gb": 23.3
+  },
+  "hardware": {
+    "cpu_model": "Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz",
+    "cpu_threads": 8,
+    "governor": "cpufreq-3497.917MHz",
+    "ram_gb": 23.3
+  }
+}

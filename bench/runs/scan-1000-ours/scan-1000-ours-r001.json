@@ -1,0 +1,38 @@
+{
+  "id": "12427f75",
+  "case_id": "scan-1000-ours",
+  "implementation": "pqblocks-cnsa-evidence (ours, src/scan.js scanTarget)",
+  "version": "0.0.0",
+  "instance": "estate-1000",
+  "parameters": {
+    "estate_size": 1000,
+    "files": 11,
+    "warmup": false
+  },
+  "seed": "deterministic-estate-tile",
+  "run_index": 1,
+  "warmup": false,
+  "wall_clock_ms": 107.772,
+  "throughput_certs_per_sec": 9278.8,
+  "per_cert_amortized_ms": 0.108,
+  "success": true,
+  "result_summary": {
+    "assets": 1000,
+    "findings": 909,
+    "files_scanned": 1000
+  },
+  "peak_rss_mb": 371.3,
+  "timestamp": "2026-11-19T19:05:48.188Z",
+  "hardware_fingerprint": {
+    "cpu_model": "Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz",
+    "cpu_threads": 8,
+    "governor": "cpufreq-3501.768MHz",
+    "ram_gb": 23.3
+  },
+  "hardware": {
+    "cpu_model": "Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz",
+    "cpu_threads": 8,
+    "governor": "cpufreq-3500.068MHz",
+    "ram_gb": 23.3
+  }
+}

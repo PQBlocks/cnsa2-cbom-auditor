@@ -1,0 +1,61 @@
+{
+  "name": "@pqblocks/cnsa2-cbom-auditor",
+  "version": "0.1.0",
+  "description": "CycloneDX 1.6 Cryptographic Bill of Materials (CBOM) generator, validator, and comparator for NSA CNSA 2.0 and NIST PQC migration standards.",
+  "license": "Apache-2.0",
+  "author": "Govind Dubey <govinddubeycse@gmail.com> (https://github.com/MrGovindDubey)",
+  "contributors": [
+    "Govind Dubey <govinddubeycse@gmail.com> (https://github.com/MrGovindDubey)"
+  ],
+  "homepage": "https://pqblocks.github.io/packages/cnsa2-cbom-auditor/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PQBlocks/cnsa2-cbom-auditor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/PQBlocks/cnsa2-cbom-auditor/issues"
+  },
+  "keywords": [
+    "pqc",
+    "post-quantum",
+    "cnsa2",
+    "cnsa-2-0",
+    "cbom",
+    "cyclonedx",
+    "cryptography",
+    "x509",
+    "pki",
+    "fips203",
+    "fips204",
+    "fips205",
+    "ml-kem",
+    "ml-dsa",
+    "slh-dsa",
+    "spki",
+    "pkcs8",
+    "pqblocks"
+  ],
+  "main": "lib/index.js",
+  "bin": {
+    "cnsa2-cbom-audit": "./bin/pqblocks-cnsa-evidence",
+    "cnsa2-cbom": "./bin/pqblocks-cnsa-evidence",
+    "pqblocks-cnsa-evidence": "./bin/pqblocks-cnsa-evidence"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "files": [
+    "lib",
+    "src",
+    "bin",
+    "README.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "dependencies": {
+    "@peculiar/x509": "^3.1.0",
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
+    "reflect-metadata": "^0.2.2"
+  }
+}

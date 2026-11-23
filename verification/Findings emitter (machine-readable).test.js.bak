@@ -1,0 +1,85 @@
+'use strict';
+
+const test = require('node:test');
+const assert = require('node:assert/strict');
+const { emitFindings } = require('../lib/findings.js');
+
+// Mock classification objects for testing
+const mockClassifications = [
+  // EC-02: PQ but not CNSA 2.0 compliant
+  {
+    verdict: 'compliant',
+    pqSecure: true,
+    cnsa20Compliant: false,
+    oid: '2.16.840.1.101.3.4.3.19',
+    family: 'ML-DSA',
+    parameterSetIdentifier: 'ML-DSA-87',
+    deadline: 'N/A'
+  },
+
+  // EC-03: Classical algorithm not CNSA 2.0 compliant (RSA-2048)
+  {
+    verdict: 'disallowed',
+    pqSecure: false,
+    cnsa20Compliant: false,
+    oid: '1.2.840.113549.1.1.1',
+    family: 'RSA',
+    parameterSetIdentifier: null,
+    deadline: '2030-12-31'
+  },
+
+  // EC-05: ML-DSA with NULL parameterSetIdentifier
+  {
+    verdict: 'disallowed',
+    pqSecure: false,
+    cnsa20Compliant: false,
+    oid: '2.16.840.1.101.3.4.3.17',
+    family: 'ML-DSA',
+    parameterSetIdentifier: null,
+    deadline: 'N/A'
+  },
+
+  // Normal compliant classification (should not produce findings)
+  {
+    verdict: 'compliant',
+    pqSecure: true,
+    cnsa20Compliant: true,
+    oid: '2.16.840.1.101.3.4.3.18',
+    family: 'ML-DSA',
+    parameterSetIdentifier: 'ML-DSA-65',
+    deadline: 'N/A'
+  }
+];
+
+test('emitFindings produces findings for PQ not CNSA 2.0 compliant (EC-02)', () => {
+  const findings = emitFindings(mockClassifications);
+  const ec02Findings = findings.filter(f => f.ruleId === 'EC-02');
+  assert.equal(ec02Findings.length, 1);
+  assert.equal(ec02Findings[0].assetRef, '2.16.840.1.101.3.4.3.19');
+});
+
+test('emitFindings produces findings for classical algorithms not CNSA 2.0 compliant (EC-03)', () => {
+  const findings = emitFindings(mockClassifications);
+  const ec03Findings = findings.filter(f => f.ruleId === 'EC-03');
+  assert.equal(ec03Findings.length, 1);
+  assert.equal(ec03Findings[0].assetRef, '1.2.840.113549.1.1.1');
+});
+
+test('emitFindings produces findings for ML-DSA with NULL parameterSetIdentifier (EC-05)', () => {
+  const findings = emitFindings(mockClassifications);
+  const ec05Findings = findings.filter(f => f.ruleId === 'EC-05');
+  assert.equal(ec05Findings.length, 1);
+  assert.equal(ec05Findings[0].assetRef, '2.16.840.1.101.3.4.3.17');
+});
+
+test('emitFindings does not produce findings for compliant classifications', () => {
+  const findings = emitFindings(mockClassifications);
+  const compliantFindings = findings.filter(f => f.ruleId === 'EC-02' || f.ruleId === 'EC-03' || f.ruleId === 'EC-05');
+  assert.equal(compliantFindings.length, 0);
+});
+
+test('emitFindings returns empty array for empty input', () => {
+  const findings = emitFindings([]);
+  assert.ok(Array.isArray(findings));
+  assert.equal(findings.length, 0);
+});

@@ -1,0 +1,442 @@
+{
+  "oracle": "OpenSSL 3.6.5 29 Sep 2026 (Library: OpenSSL 3.6.5 29 Sep 2026)",
+  "generatedUtc": "2026-11-13T02:24:10.443Z",
+  "certificates": [
+    {
+      "file": "certs/ec-p256-sha256.crt",
+      "sha256": "d145336ee7b4d53d1202cb75d12d59d8d7a8edee94c276e51e5e81b1d383a42e",
+      "derBytes": 607,
+      "subjectDn": "CN=pqblocks-gv-ec-p256-sha256",
+      "notBefore": "Nov 13 02:13:47 2026 GMT",
+      "notAfter": "Nov 10 02:13:47 2036 GMT",
+      "signatureAlgorithm": "ecdsa-with-SHA256",
+      "signature": {
+        "family": "ECDSA",
+        "primitive": "signature",
+        "paramSet": "P-256",
+        "nistQuantumSecurityLevel": 0,
+        "pqSecure": false,
+        "cnsa20Compliant": false,
+        "nistDisposition": "deprecated-2030-disallowed-2035",
+        "curve": "prime256v1",
+        "cnsa10ParameterOk": false
+      },
+      "publicKey": {
+        "family": "EC",
+        "primitive": "key-agree",
+        "paramSet": "P-256",
+        "nistQuantumSecurityLevel": 0,
+        "pqSecure": false,
+        "cnsa20Compliant": false,
+        "nistDisposition": "deprecated-2030-disallowed-2035",
+        "curve": "prime256v1",
+        "cnsa10ParameterOk": false
+      }
+    },
+    {
+      "file": "certs/ec-p384-sha384.crt",
+      "sha256": "d70eb2a1593897042d1c91c4c8043542247773fb4730e16f8ae977c10563795c",
+      "derBytes": 692,
+      "subjectDn": "CN=pqblocks-gv-ec-p384-sha384",
+      "notBefore": "Nov 13 02:13:47 2026 GMT",
+      "notAfter": "Nov 10 02:13:47 2036 GMT",
+      "signatureAlgorithm": "ecdsa-with-SHA384",
+      "signature": {
+        "family": "ECDSA",
+        "primitive": "signature",
+        "paramSet": "P-384",
+        "nistQuantumSecurityLevel": 0,
+        "pqSecure": false,
+        "cnsa20Compliant": false,
+        "nistDisposition": "deprecated-2030-disallowed-2035",
+        "curve": "secp384r1",
+        "cnsa10ParameterOk": true
+      },
+      "publicKey": {
+        "family": "EC",
+        "primitive": "key-agree",
+        "paramSet": "P-384",
+        "nistQuantumSecurityLevel": 0,
+        "pqSecure": false,
+        "cnsa20Compliant": false,
+        "nistDisposition": "deprecated-2030-disallowed-2035",
+        "curve": "secp384r1",
+        "cnsa10ParameterOk": true
+      }
+    },
+    {
+      "file": "certs/ed25519.crt",
+      "sha256": "a193376de94adc1d9e1e78e26e143217582c3fef108e9772a902eb4f478cf441",
+      "derBytes": 501,
+      "subjectDn": "CN=pqblocks-gv-ed25519",
+      "notBefore": "Nov 13 02:13:47 2026 GMT",
+      "notAfter": "Nov 10 02:13:47 2036 GMT",
+      "signatureAlgorithm": "ED25519",
+      "signature": {
+        "family": "EdDSA",
+        "primitive": "signature",
+        "paramSet": "Ed25519",
+        "nistQuantumSecurityLevel": 0,
+        "pqSecure": false,
+        "cnsa20Compliant": false,
+        "nistDisposition": "deprecated-2030-disallowed-2035"
+      },
+      "publicKey": {
+        "family": "EdDSA",
+        "primitive": "signature",
+        "paramSet": "Ed25519",
+        "nistQuantumSecurityLevel": 0,
+        "pqSecure": false,
+        "cnsa20Compliant": false,
+        "nistDisposition": "deprecated-2030-disallowed-2035"
+      }
+    },
+    {
+      "file": "certs/mldsa44.crt",
+      "sha256": "f9c23a8c4413d232fb8c15e5a13857a8679aea04adf132a727ae0818932cb3d2",
+      "derBytes": 5458,
+      "subjectDn": "CN=pqblocks-gv-mldsa44",
+      "notBefore": "Nov 13 02:13:47 2026 GMT",
+      "notAfter": "Nov 10 02:13:47 2036 GMT",
+      "signatureAlgorithm": "ML-DSA-44",
+      "signature": {
+        "family": "ML-DSA",
+        "primitive": "signature",
+        "paramSet": "ML-DSA-44",
+        "nistQuantumSecurityLevel": 2,
+        "pqSecure": true,
+        "cnsa20Compliant": false,
+        "nistDisposition": "quantum-resistant"
+      },
+      "publicKey": {
+        "family": "ML-DSA",
+        "primitive": "signature",
+        "paramSet": "ML-DSA-44",
+        "nistQuantumSecurityLevel": 2,
+        "pqSecure": true,
+        "cnsa20Compliant": false,
+        "nistDisposition": "quantum-resistant"
+      }
+    },
+    {
+      "file": "certs/mldsa65.crt",
+      "sha256": "c78e7e827f9afcc3f843a244136838b1a3eb0f340c26a2ee3ec1f23a590923e0",
+      "derBytes": 7529,
+      "subjectDn": "CN=pqblocks-gv-mldsa65",
+      "notBefore": "Nov 13 02:13:47 2026 GMT",
+      "notAfter": "Nov 10 02:13:47 2036 GMT",
+      "signatureAlgorithm": "ML-DSA-65",
+      "signature": {
+        "family": "ML-DSA",
+        "primitive": "signature",
+        "paramSet": "ML-DSA-65",
+        "nistQuantumSecurityLevel": 3,
+        "pqSecure": true,
+        "cnsa20Compliant": false,
+        "nistDisposition": "quantum-resistant"
+      },
+      "publicKey": {
+        "family": "ML-DSA",
+        "primitive": "signature",
+        "paramSet": "ML-DSA-65",
+        "nistQuantumSecurityLevel": 3,
+        "pqSecure": true,
+        "cnsa20Compliant": false,
+        "nistDisposition": "quantum-resistant"
+      }
+    },
+    {
+      "file": "certs/mldsa87.crt",
+      "sha256": "94dcf9b1419c37f73bc94f254a7de7db44cf1e2b7f14aacd49345fbc4410d2ee",
+      "derBytes": 10178,
+      "subjectDn": "CN=pqblocks-gv-mldsa87",
+      "notBefore": "Nov 13 02:13:47 2026 GMT",
+      "notAfter": "Nov 10 02:13:47 2036 GMT",
+      "signatureAlgorithm": "ML-DSA-87",
+      "signature": {
+        "family": "ML-DSA",
+        "primitive": "signature",
+        "paramSet": "ML-DSA-87",
+        "nistQuantumSecurityLevel": 5,
+        "pqSecure": true,
+        "cnsa20Compliant": true,
+        "nistDisposition": "quantum-resistant"
+      },
+      "publicKey": {
+        "family": "ML-DSA",
+        "primitive": "signature",
+        "paramSet": "ML-DSA-87",
+        "nistQuantumSecurityLevel": 5,
+        "pqSecure": true,
+        "cnsa20Compliant": true,
+        "nistDisposition": "quantum-resistant"
+      }
+    },
+    {
+      "file": "certs/rsa2048-sha256.crt",
+      "sha256": "927d36700f1995eaa82e2627fde187839ee54a3a95b59cdbea9e32b1af667c88",
+      "derBytes": 1143,
+      "subjectDn": "CN=pqblocks-gv-rsa2048-sha256",
+      "notBefore": "Nov 13 02:13:46 2026 GMT",
+      "notAfter": "Nov 10 02:13:46 2036 GMT",
+      "signatureAlgorithm": "sha256WithRSAEncryption",
+      "signature": {
+        "family": "RSA",
+        "primitive": "signature",
+        "paramSet": "RSA-2048",
+        "nistQuantumSecurityLevel": 0,
+        "pqSecure": false,
+        "cnsa20Compliant": false,
+        "nistDisposition": "deprecated-2030-disallowed-2035",
+        "classicalBits": 2048,
+        "cnsa10ParameterOk": false
+      },
+      "publicKey": {
+        "family": "RSA",
+        "primitive": "pke",
+        "paramSet": "RSA-2048",
+        "nistQuantumSecurityLevel": 0,
+        "pqSecure": false,
+        "cnsa20Compliant": false,
+        "nistDisposition": "deprecated-2030-disallowed-2035",
+        "classicalBits": 2048,
+        "cnsa10ParameterOk": false
+      }
+    },
+    {
+      "file": "certs/rsa3072-sha384.crt",
+      "sha256": "47b6825892f20c1567879352ace31bdde9aaa3ac485253da4f06086e85a3542b",
+      "derBytes": 1493,
+      "subjectDn": "CN=pqblocks-gv-rsa3072-sha384",
+      "notBefore": "Nov 13 02:13:46 2026 GMT",
+      "notAfter": "Nov 10 02:13:46 2036 GMT",
+      "signatureAlgorithm": "sha384WithRSAEncryption",
+      "signature": {
+        "family": "RSA",
+        "primitive": "signature",
+        "paramSet": "RSA-3072",
+        "nistQuantumSecurityLevel": 0,
+        "pqSecure": false,
+        "cnsa20Compliant": false,
+        "nistDisposition": "deprecated-2030-disallowed-2035",
+        "classicalBits": 3072,
+        "cnsa10ParameterOk": true
+      },
+      "publicKey": {
+        "family": "RSA",
+        "primitive": "pke",
+        "paramSet": "RSA-3072",
+        "nistQuantumSecurityLevel": 0,
+        "pqSecure": false,
+        "cnsa20Compliant": false,
+        "nistDisposition": "deprecated-2030-disallowed-2035",
+        "classicalBits": 3072,
+        "cnsa10ParameterOk": true
+      }
+    },
+    {
+      "file": "certs/rsa4096-sha512.crt",
+      "sha256": "bf13d1808048b557fb1327409cd4e0157ccb5419e9fb7603bad2c451c8e32bee",
+      "derBytes": 1838,
+      "subjectDn": "CN=pqblocks-gv-rsa4096-sha512",
+      "notBefore": "Nov 13 02:13:47 2026 GMT",
+      "notAfter": "Nov 10 02:13:47 2036 GMT",
+      "signatureAlgorithm": "sha512WithRSAEncryption",
+      "signature": {
+        "family": "RSA",
+        "primitive": "signature",
+        "paramSet": "RSA-4096",
+        "nistQuantumSecurityLevel": 0,
+        "pqSecure": false,
+        "cnsa20Compliant": false,
+        "nistDisposition": "deprecated-2030-disallowed-2035",
+        "classicalBits": 4096,
+        "cnsa10ParameterOk": true
+      },
+      "publicKey": {
+        "family": "RSA",
+        "primitive": "pke",
+        "paramSet": "RSA-4096",
+        "nistQuantumSecurityLevel": 0,
+        "pqSecure": false,
+        "cnsa20Compliant": false,
+        "nistDisposition": "deprecated-2030-disallowed-2035",
+        "classicalBits": 4096,
+        "cnsa10ParameterOk": true
+      }
+    },
+    {
+      "file": "certs/slhdsa-sha2-128s.crt",
+      "sha256": "09d64f8d4959c447494a200a074576ee75dd5002a507760989e1f5131d7c0fee",
+      "derBytes": 11104,
+      "subjectDn": "CN=pqblocks-gv-slhdsa-sha2-128s",
+      "notBefore": "Nov 13 02:13:48 2026 GMT",
+      "notAfter": "Nov 10 02:13:48 2036 GMT",
+      "signatureAlgorithm": "SLH-DSA-SHA2-128s",
+      "signature": {
+        "family": "SLH-DSA",
+        "primitive": "signature",
+        "paramSet": "SLH-DSA-SHA2-128s",
+        "nistQuantumSecurityLevel": 1,
+        "pqSecure": true,
+        "cnsa20Compliant": false,
+        "nistDisposition": "quantum-resistant"
+      },
+      "publicKey": {
+        "family": "SLH-DSA",
+        "primitive": "signature",
+        "paramSet": "SLH-DSA-SHA2-128s",
+        "nistQuantumSecurityLevel": 1,
+        "pqSecure": true,
+        "cnsa20Compliant": false,
+        "nistDisposition": "quantum-resistant"
+      }
+    },
+    {
+      "file": "certs/slhdsa-shake-256f.crt",
+      "sha256": "144f2f682771d98f016105cc55a1a9ce437d8c2024ba7a05b5873143272544c9",
+      "derBytes": 68024,
+      "subjectDn": "CN=pqblocks-gv-slhdsa-shake-256f",
+      "notBefore": "Nov 13 02:13:49 2026 GMT",
+      "notAfter": "Nov 10 02:13:49 2036 GMT",
+      "signatureAlgorithm": "SLH-DSA-SHAKE-256f",
+      "signature": {
+        "family": "SLH-DSA",
+        "primitive": "signature",
+        "paramSet": "SLH-DSA-SHAKE-256f",
+        "nistQuantumSecurityLevel": 5,
+        "pqSecure": true,
+        "cnsa20Compliant": false,
+        "nistDisposition": "quantum-resistant"
+      },
+      "publicKey": {
+        "family": "SLH-DSA",
+        "primitive": "signature",
+        "paramSet": "SLH-DSA-SHAKE-256f",
+        "nistQuantumSecurityLevel": 5,
+        "pqSecure": true,
+        "cnsa20Compliant": false,
+        "nistDisposition": "quantum-resistant"
+      }
+    }
+  ],
+  "keys": [
+    {
+      "file": "spki/ec-p256-sha256.spki.pem",
+      "sha256": "46b6b5e2d90a9b498b8c857c53b6125c2bdc709ec094e7720b48e7b75eeaee31",
+      "derBytes": 91,
+      "algorithm": "id-ecPublicKey",
+      "oid": "1.2.840.10045.2.1",
+      "keyOctets": 65,
+      "curve": "1.2.840.10045.3.1.7",
+      "keyOctetsMatchFipsTable": false
+    },
+    {
+      "file": "spki/ec-p384-sha384.spki.pem",
+      "sha256": "951b5ae7e0e02e279086b8654abe449b41dc92e151d6885d451b64e6d45c778a",
+      "derBytes": 120,
+      "algorithm": "id-ecPublicKey",
+      "oid": "1.2.840.10045.2.1",
+      "keyOctets": 97,
+      "curve": "1.3.132.0.34",
+      "keyOctetsMatchFipsTable": false
+    },
+    {
+      "file": "spki/ed25519.spki.pem",
+      "sha256": "3640b8bb04e0c5715dd5930e4de6743f8b1693b340dcc96818f0c2fe21a4c693",
+      "derBytes": 44,
+      "algorithm": "ED25519",
+      "oid": "1.3.101.112",
+      "keyOctets": 32,
+      "keyOctetsMatchFipsTable": false
+    },
+    {
+      "file": "spki/mldsa44.spki.pem",
+      "sha256": "cf2f0507c18fb6afaa7465d99c87ade82b75c405a89fb8782e0d92bd1b866c3f",
+      "derBytes": 1334,
+      "algorithm": "ML-DSA-44",
+      "oid": "2.16.840.1.101.3.4.3.17",
+      "keyOctets": 1312,
+      "expectedKeyOctets": 1312,
+      "keyOctetsMatchFipsTable": true
+    },
+    {
+      "file": "spki/mldsa65.spki.pem",
+      "sha256": "a75394d5cb77ab903568a131339aef6f007635773cede8cb0cf3029b7fbf99df",
+      "derBytes": 1974,
+      "algorithm": "ML-DSA-65",
+      "oid": "2.16.840.1.101.3.4.3.18",
+      "keyOctets": 1952,
+      "expectedKeyOctets": 1952,
+      "keyOctetsMatchFipsTable": true
+    },
+    {
+      "file": "spki/mldsa87.spki.pem",
+      "sha256": "938215e19ded201c70630a5a3a506b9ad483ebd96777381d5f182303b8c937a2",
+      "derBytes": 2614,
+      "algorithm": "ML-DSA-87",
+      "oid": "2.16.840.1.101.3.4.3.19",
+      "keyOctets": 2592,
+      "expectedKeyOctets": 2592,
+      "keyOctetsMatchFipsTable": true
+    },
+    {
+      "file": "spki/mlkem1024.spki.pem",
+      "sha256": "139de5a79e09755cb73a6a0fdc90329a790aa4c511f4ef71931b92a7b4e86856",
+      "derBytes": 1590,
+      "algorithm": "ML-KEM-1024",
+      "oid": "2.16.840.1.101.3.4.4.3",
+      "keyOctets": 1568,
+      "expectedKeyOctets": 1568,
+      "keyOctetsMatchFipsTable": true
+    },
+    {
+      "file": "spki/rsa2048-sha256.spki.pem",
+      "sha256": "4978119a2ebafbfca8215dd81fe8176dfd64ce210c023eff0c8fed5e206f494e",
+      "derBytes": 294,
+      "algorithm": "rsaEncryption",
+      "oid": "1.2.840.113549.1.1.1",
+      "keyOctets": 270,
+      "keyOctetsMatchFipsTable": false
+    },
+    {
+      "file": "spki/rsa3072-sha384.spki.pem",
+      "sha256": "e9c36853824904d12b16a3c5384ac276dd8700bc06de0fea8760909532646ba7",
+      "derBytes": 422,
+      "algorithm": "rsaEncryption",
+      "oid": "1.2.840.113549.1.1.1",
+      "keyOctets": 398,
+      "keyOctetsMatchFipsTable": false
+    },
+    {
+      "file": "spki/rsa4096-sha512.spki.pem",
+      "sha256": "3559ae32a4085a4569fbcc597ed2443289698f514c81a418bc5ecdde3f64dc37",
+      "derBytes": 550,
+      "algorithm": "rsaEncryption",
+      "oid": "1.2.840.113549.1.1.1",
+      "keyOctets": 526,
+      "keyOctetsMatchFipsTable": false
+    },
+    {
+      "file": "spki/slhdsa-sha2-128s.spki.pem",
+      "sha256": "6ac76a8f019b8897dfcfa70a2a6a908227b750bcc529fc471d0312bbd9254ffd",
+      "derBytes": 50,
+      "algorithm": "SLH-DSA-SHA2-128s",
+      "oid": "2.16.840.1.101.3.4.3.20",
+      "keyOctets": 32,
+      "expectedKeyOctets": 32,
+      "keyOctetsMatchFipsTable": true
+    },
+    {
+      "file": "spki/slhdsa-shake-256f.spki.pem",
+      "sha256": "0a1ae9a035eed429fb4dbb0cc02351c2b713afc6b6facee91fe8372d8048a01c",
+      "derBytes": 82,
+      "algorithm": "SLH-DSA-SHAKE-256f",
+      "oid": "2.16.840.1.101.3.4.3.31",
+      "keyOctets": 64,
+      "expectedKeyOctets": 64,
+      "keyOctetsMatchFipsTable": true
+    }
+  ],
+  "failures": []
+}

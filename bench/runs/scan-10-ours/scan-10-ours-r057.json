@@ -1,0 +1,38 @@
+{
+  "id": "cb7445c2",
+  "case_id": "scan-10-ours",
+  "implementation": "pqblocks-cnsa-evidence (ours, src/scan.js scanTarget)",
+  "version": "0.0.0",
+  "instance": "estate-10",
+  "parameters": {
+    "estate_size": 10,
+    "files": 11,
+    "warmup": false
+  },
+  "seed": "deterministic-estate-tile",
+  "run_index": 57,
+  "warmup": false,
+  "wall_clock_ms": 0.595,
+  "throughput_certs_per_sec": 16793.2,
+  "per_cert_amortized_ms": 0.06,
+  "success": true,
+  "result_summary": {
+    "assets": 10,
+    "findings": 9,
+    "files_scanned": 10
+  },
+  "peak_rss_mb": 351.6,
+  "timestamp": "2026-11-19T19:05:41.677Z",
+  "hardware_fingerprint": {
+    "cpu_model": "Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz",
+    "cpu_threads": 8,
+    "governor": "cpufreq-3600.588MHz",
+    "ram_gb": 23.3
+  },
+  "hardware": {
+    "cpu_model": "Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz",
+    "cpu_threads": 8,
+    "governor": "cpufreq-3600.088MHz",
+    "ram_gb": 23.3
+  }
+}

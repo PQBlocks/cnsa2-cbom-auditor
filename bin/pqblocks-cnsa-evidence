@@ -1,0 +1,242 @@
+#!/usr/bin/env node
+'use strict';
+
+const fs = require('fs');
+const path = require('path');
+const { generateCbom } = require('../lib/cbom');
+
+const EXIT_OK = 0;
+const EXIT_FINDINGS = 3;
+const EXIT_USAGE = 4;
+const EXIT_INTERNAL = 1;
+
+function usage() {
+  return [
+    'Usage: pqblocks-cnsa-evidence <command> [options]',
+    '',
+    'Commands:',
+    '  scan     Scan a target for cryptographic assets',
+    '  verify   Verify a CBOM file',
+    '  compare  Compare two CBOM files',
+    '',
+    'Options:',
+    '  --help     Show this help message',
+    '  --version  Show version',
+  ].join('\n');
+}
+
+function parseArgs(argv) {
+  const args = { _: [] };
+  for (let i = 0; i < argv.length; i++) {
+    const arg = argv[i];
+    if (arg === '--help' || arg === '-h') {
+      args.help = true;
+    } else if (arg === '--version' || arg === '-v') {
+      args.version = true;
+    } else if (arg.startsWith('--')) {
+      const key = arg.slice(2);
+      const next = argv[i + 1];
+      if (next && !next.startsWith('--')) {
+        args[key] = next;
+        i++;
+      } else {
+        args[key] = true;
+      }
+    } else {
+      args._.push(arg);
+    }
+  }
+  return args;
+}
+
+async function main() {
+  const args = parseArgs(process.argv.slice(2));
+  const pkg = require('../package.json');
+
+  if (args.help) {
+    console.log(usage());
+    process.exit(EXIT_OK);
+  }
+
+  if (args.version) {
+    console.log(pkg.version);
+    process.exit(EXIT_OK);
+  }
+
+  const command = args._[0];
+
+  if (!command) {
+    console.error(usage());
+    process.exit(EXIT_USAGE);
+  }
+
+  try {
+    switch (command) {
+      case 'scan':
+        await runScan(args);
+        break;
+      case 'verify':
+        await runVerify(args);
+        break;
+      case 'compare':
+        await runCompare(args);
+        break;
+      default:
+        console.error(`Unknown command: ${command}`);
+        console.error(usage());
+        process.exit(EXIT_USAGE);
+    }
+  } catch (err) {
+    console.error(err.message || err);
+    process.exit(EXIT_INTERNAL);
+  }
+}
+
+async function runScan(args) {
+  const target = args.target;
+  if (!target) {
+    console.error('Error: --target is required for scan');
+    process.exit(EXIT_USAGE);
+  }
+
+  const format = args.format || 'json';
+  if (format !== 'json' && format !== 'table') {
+    console.error(`Error: unsupported --format "${format}" (expected json|table)`);
+    process.exit(EXIT_USAGE);
+  }
+
+  const failOn = args['fail-on'];
+  if (failOn && !['disallowed', 'deprecated', 'any'].includes(failOn)) {
+    console.error(`Error: unsupported --fail-on "${failOn}" (expected disallowed|deprecated|any)`);
+    process.exit(EXIT_USAGE);
+  }
+
+  try {
+    const { scanToCbom, renderScanTable, findingsAtOrAbove } = require('../lib/scan');
+    const result = await scanToCbom(target);
+    let output;
+    if (format === 'table') {
+      output = renderScanTable(result);
+    } else {
+      output = JSON.stringify(result.bom, null, 2);
+    }
+
+    if (args.out) {
+      fs.writeFileSync(args.out, output, 'utf8');
+    } else {
+      console.log(output);
+    }
+
+    if (failOn) {
+      const triggered = findingsAtOrAbove(result.findings, failOn);
+      if (triggered.length > 0) {
+        process.exit(EXIT_FINDINGS);
+      }
+    }
+
+    process.exit(EXIT_OK);
+  } catch (err) {
+    if (err && (err.code === 'ENOENT' || err.code === 'ENOTDIR')) {
+      console.error(`Error: target not found: ${target}`);
+      process.exit(EXIT_INTERNAL);
+    }
+    console.error(err.message || err);
+    process.exit(EXIT_INTERNAL);
+  }
+}
+
+async function runVerify(args) {
+  const cbomFile = args.cbom;
+  if (!cbomFile) {
+    console.error('Error: --cbom is required for verify');
+    process.exit(EXIT_USAGE);
+  }
+
+  const failOn = args['fail-on'];
+  if (failOn && !['disallowed', 'deprecated', 'any'].includes(failOn)) {
+    console.error(`Error: unsupported --fail-on "${failOn}" (expected disallowed|deprecated|any)`);
+    process.exit(EXIT_USAGE);
+  }
+
+  try {
+    const { verifyCbom } = require('../lib/verify.js');
+    verifyCbom(cbomFile, { failOn });
+    console.log('CBOM is valid');
+    process.exit(EXIT_OK);
+  } catch (err) {
+    if (err && (err.code === 'ENOENT' || err.code === 'ENOTDIR')) {
+      console.error(`Error: CBOM file not found: ${cbomFile}`);
+      process.exit(EXIT_INTERNAL);
+    }
+    if (err && err.code === 'INVALID_JSON') {
+      console.error(err.message);
+      process.exit(EXIT_INTERNAL);
+    }
+    if (err && err.code === 'FINDINGS') {
+      console.error(err.message);
+      process.exit(EXIT_FINDINGS);
+    }
+    if (err && err.validationErrors) {
+      console.error('Invalid CBOM: ' + JSON.stringify(err.validationErrors));
+      process.exit(EXIT_FINDINGS);
+    }
+    console.error(err && err.message ? err.message : err);
+    if (err && /schema validation/i.test(String(err.message))) {
+      process.exit(EXIT_FINDINGS);
+    }
+    process.exit(EXIT_INTERNAL);
+  }
+}
+
+async function runCompare(args) {
+  const beforeFile = args.before;
+  const afterFile = args.after;
+  const format = args.format || 'table';
+
+  if (!beforeFile || !afterFile) {
+    console.error('Error: --before and --after are required for compare');
+    process.exit(EXIT_USAGE);
+  }
+
+  const formatArg = args.format || 'table';
+  if (formatArg !== 'json' && formatArg !== 'table') {
+    console.error(`Error: unsupported --format "${formatArg}" (expected json|table)`);
+    process.exit(EXIT_USAGE);
+  }
+
+  try {
+    const { compareCboms, renderCompareTable } = require('../lib/compare');
+    const result = compareCboms(beforeFile, afterFile);
+    
+    let output;
+    if (format === 'table') {
+      output = renderCompareTable(result);
+    } else {
+      output = JSON.stringify(result, null, 2);
+    }
+
+    if (args.out) {
+      fs.writeFileSync(args.out, output, 'utf8');
+    } else {
+      console.log(output);
+    }
+
+    process.exit(EXIT_OK);
+  } catch (err) {
+    if (err && (err.code === 'ENOENT' || err.code === 'ENOTDIR')) {
+      console.error(`Error: CBOM file not found`);
+      process.exit(EXIT_INTERNAL);
+    }
+    console.error(err.message || err);
+    process.exit(EXIT_INTERNAL);
+  }
+}
+
+if (require.main === module) {
+  main().catch(err => {
+    console.error(err.message || err);
+    process.exit(EXIT_INTERNAL);
+  });
+}
+
+module.exports = { main, parseArgs };

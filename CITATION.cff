@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software in research or compliance reporting, please cite it as below."
+title: "@pqblocks/cnsa2-cbom-auditor"
+version: 0.1.0
+date-released: 2026-11-23
+authors:
+  - family-names: Dubey
+    given-names: Govind
+    email: govinddubeycse@gmail.com
+repository-code: "https://github.com/PQBlocks/cnsa2-cbom-auditor"
+url: "https://pqblocks.github.io"
+license: Apache-2.0
+keywords:
+  - post-quantum
+  - cnsa2
+  - cbom
+  - cyclonedx
+  - cryptography

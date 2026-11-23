@@ -1,0 +1,288 @@
+{
+  "generated_at": "2026-11-19T19:06:19.435Z",
+  "card_name": "pqblocks-cnsa-evidence — CNSA 2.0 PKI auditor scan workload",
+  "product_class": "SOFTWARE",
+  "workload": "scan estate: 10 / 100 / 1000 / 10000 X.509 certificates (spec §6)",
+  "baseline": "cryptography 50.0.2 (PyPI, Python 3.14.9) — reference only, lacks classification layer",
+  "our_implementation": "pqblocks-cnsa-evidence src/scan.js scanTarget (npm, package.json version 0.0.0)",
+  "running_node": "v26.13.0",
+  "hardware": {
+    "cpu_model": "Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz",
+    "cpu_threads": 8,
+    "governor": "cpufreq-3199.981MHz",
+    "ram_gb": 23.3
+  },
+  "hardware_fingerprint": {
+    "cpu_model": "Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz",
+    "cpu_threads": 8,
+    "governor": "cpufreq-3199.981MHz",
+    "ram_gb": 23.3
+  },
+  "node_modules": {
+    "@peculiar/x509": "^3.1.0",
+    "@cyclonedx/cyclonedx-library": "absent",
+    "ajv": "^8.20.0"
+  },
+  "ci_method": "bootstrap percentile (B=10000, level=95%)",
+  "tuning_budget": "none (deterministic scan on both sides; no parameter search)",
+  "baselines": [
+    "CNSA 2.0 compliant (mldsa87.crt, mldsa44.crt, mldsa65.crt, ed25519.crt)",
+    "IR 8547 deprecated-2030 (rsa2048-sha256.crt, rsa4096-sha512.crt, rsa3072-sha384.crt, ec-p256-sha256.crt, ec-p384-sha384.crt)",
+    "IR 8547 disallowed-2035 (slhdsa-sha2-128s.crt, slhdsa-shake-256f.crt)",
+    "IR 8547 minimum (ed25519.crt)",
+    "Non-PQC permitted (ec-p384-sha384.crt)",
+    "IR 8547 minimum (ec-p256-sha256.crt)",
+    "Non-PQC permitted (ec-p256-sha256.crt, ed25519.crt)"
+  ],
+  "estate_metrics": {
+    "10:ours": {
+      "implant_reference": "ours",
+      "estate_size": 10,
+      "runs": 100,
+      "valid_runs": 100,
+      "wall_p50_ms": 0.616,
+      "wall_p99_ms": 1.485,
+      "wall_p50_ci": {
+        "lo": 0.579,
+        "hi": 0.6805
+      },
+      "wall_p99_ci": {
+        "lo": 0.4614200000000018,
+        "hi": 1.3400899999999965
+      },
+      "per_cert_p50_ms": 0.062,
+      "per_cert_p99_ms": 0.149,
+      "per_cert_p50_ci": {
+        "lo": 0.058499999999999996,
+        "hi": 0.068
+      },
+      "per_cert_p99_ci": {
+        "lo": 0.04615000000000007,
+        "hi": 0.13422999999999963
+      },
+      "throughput_p50_certs_per_sec": 16236.9,
+      "success_rate": 1
+    },
+    "10:cryptography": {
+      "implant_reference": "cryptography",
+      "estate_size": 10,
+      "runs": 30,
+      "valid_runs": 30,
+      "wall_p50_ms": 78.574,
+      "wall_p99_ms": 139.671,
+      "wall_p50_ci": {
+        "lo": 73.69149999999999,
+        "hi": 90.117
+      },
+      "wall_p99_ci": {
+        "lo": 67.53075,
+        "hi": 129.741
+      },
+      "per_cert_p50_ms": 7.857,
+      "per_cert_p99_ms": 13.967,
+      "per_cert_p50_ci": {
+        "lo": 7.369,
+        "hi": 9.0115
+      },
+      "per_cert_p99_ci": {
+        "lo": 6.72249,
+        "hi": 12.899570000000004
+      },
+      "throughput_p50_certs_per_sec": 127.3,
+      "success_rate": 1
+    },
+    "100:ours": {
+      "implant_reference": "ours",
+      "estate_size": 100,
+      "runs": 50,
+      "valid_runs": 50,
+      "wall_p50_ms": 9.909,
+      "wall_p99_ms": 21.334,
+      "wall_p50_ci": {
+        "lo": 9.329,
+        "hi": 10.72
+      },
+      "wall_p99_ci": {
+        "lo": 5.997189999999998,
+        "hi": 16.259259999999987
+      },
+      "per_cert_p50_ms": 0.099,
+      "per_cert_p99_ms": 0.213,
+      "per_cert_p50_ci": {
+        "lo": 0.093,
+        "hi": 0.108
+      },
+      "per_cert_p99_ci": {
+        "lo": 0.06105999999999999,
+        "hi": 0.16271999999999986
+      },
+      "throughput_p50_certs_per_sec": 10091.8,
+      "success_rate": 1
+    },
+    "100:cryptography": {
+      "implant_reference": "cryptography",
+      "estate_size": 100,
+      "runs": 20,
+      "valid_runs": 20,
+      "wall_p50_ms": 98.956,
+      "wall_p99_ms": 133.177,
+      "wall_p50_ci": {
+        "lo": 91.199,
+        "hi": 108.21549999999999
+      },
+      "wall_p99_ci": {
+        "lo": 83.33,
+        "hi": 128.30758999999998
+      },
+      "per_cert_p50_ms": 0.99,
+      "per_cert_p99_ms": 1.332,
+      "per_cert_p50_ci": {
+        "lo": 0.912,
+        "hi": 1.082
+      },
+      "per_cert_p99_ci": {
+        "lo": 0.8329300000000002,
+        "hi": 1.28738
+      },
+      "throughput_p50_certs_per_sec": 1010.5,
+      "success_rate": 1
+    },
+    "1000:ours": {
+      "implant_reference": "ours",
+      "estate_size": 1000,
+      "runs": 20,
+      "valid_runs": 20,
+      "wall_p50_ms": 71.474,
+      "wall_p99_ms": 111.267,
+      "wall_p50_ci": {
+        "lo": 68.108,
+        "hi": 93.3095
+      },
+      "wall_p99_ci": {
+        "lo": 61.46895000000001,
+        "hi": 107.772
+      },
+      "per_cert_p50_ms": 0.071,
+      "per_cert_p99_ms": 0.111,
+      "per_cert_p50_ci": {
+        "lo": 0.068,
+        "hi": 0.0935
+      },
+      "per_cert_p99_ci": {
+        "lo": 0.06152000000000001,
+        "hi": 0.10647999999999999
+      },
+      "throughput_p50_certs_per_sec": 13991.3,
+      "success_rate": 1
+    },
+    "1000:cryptography": {
+      "implant_reference": "cryptography",
+      "estate_size": 1000,
+      "runs": 10,
+      "valid_runs": 10,
+      "wall_p50_ms": 204.803,
+      "wall_p99_ms": 218.965,
+      "wall_p50_ci": {
+        "lo": 178.305,
+        "hi": 215.003
+      },
+      "wall_p99_ci": {
+        "lo": 170.41198,
+        "hi": 218.72854
+      },
+      "per_cert_p50_ms": 0.205,
+      "per_cert_p99_ms": 0.219,
+      "per_cert_p50_ci": {
+        "lo": 0.1785,
+        "hi": 0.215
+      },
+      "per_cert_p99_ci": {
+        "lo": 0.16999,
+        "hi": 0.21864
+      },
+      "throughput_p50_certs_per_sec": 4882.8,
+      "success_rate": 1
+    },
+    "10000:ours": {
+      "implant_reference": "ours",
+      "estate_size": 10000,
+      "runs": 10,
+      "valid_runs": 10,
+      "wall_p50_ms": 909.771,
+      "wall_p99_ms": 1215.496,
+      "wall_p50_ci": {
+        "lo": 751.707,
+        "hi": 1010.118
+      },
+      "wall_p99_ci": {
+        "lo": 713.22401,
+        "hi": 1208.86291
+      },
+      "per_cert_p50_ms": 0.091,
+      "per_cert_p99_ms": 0.122,
+      "per_cert_p50_ci": {
+        "lo": 0.075,
+        "hi": 0.101
+      },
+      "per_cert_p99_ci": {
+        "lo": 0.07135999999999999,
+        "hi": 0.12102
+      },
+      "throughput_p50_certs_per_sec": 10991.9,
+      "success_rate": 1
+    },
+    "10000:cryptography": {
+      "implant_reference": "cryptography",
+      "estate_size": 10000,
+      "runs": 10,
+      "valid_runs": 10,
+      "wall_p50_ms": 1431.598,
+      "wall_p99_ms": 2409.349,
+      "wall_p50_ci": {
+        "lo": 1266.488,
+        "hi": 2080.027
+      },
+      "wall_p99_ci": {
+        "lo": 1207.89765,
+        "hi": 2396.48496
+      },
+      "per_cert_p50_ms": 0.143,
+      "per_cert_p99_ms": 0.241,
+      "per_cert_p50_ci": {
+        "lo": 0.127,
+        "hi": 0.208
+      },
+      "per_cert_p99_ci": {
+        "lo": 0.12063,
+        "hi": 0.23985
+      },
+      "throughput_p50_certs_per_sec": 6994.8,
+      "success_rate": 1
+    }
+  },
+  "target": {
+    "throughput_threshold": ">= 500 certs/sec at 10k estate",
+    "p99_threshold_ms": "< 50 ms per cert",
+    "verdict": "meets spec §6 target (>= 500 certs/sec and p99 < 50 ms at 10k)"
+  },
+  "estates": {
+    "10": {
+      "files": 10,
+      "oid_hash": "e55a11bf5e58"
+    },
+    "100": {
+      "files": 100,
+      "oid_hash": "4cd9f3bf0ec2"
+    },
+    "1000": {
+      "files": 1000,
+      "oid_hash": "0f3ca088d8de"
+    },
+    "10000": {
+      "files": 10000,
+      "oid_hash": "022b349012df"
+    }
+  },
+  "regeneration_command": "node bench/run.js",
+  "raw_runs_dir": "bench/runs/"
+}
