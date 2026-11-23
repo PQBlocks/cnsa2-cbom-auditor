@@ -6,7 +6,7 @@ date-released: 2026-11-23
 authors:
   - family-names: Dubey
     given-names: Govind
-    email: govinddubeycse@gmail.com
+    email: govinddubeycse+pqblocks@gmail.com
 repository-code: "https://github.com/PQBlocks/cnsa2-cbom-auditor"
 url: "https://pqblocks.github.io"
 license: Apache-2.0

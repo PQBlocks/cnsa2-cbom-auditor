@@ -178,7 +178,7 @@ runAudit().catch(console.error);
 
 ## Authors & Contributors
 
-* **Govind Dubey** ([@MrGovindDubey](https://github.com/MrGovindDubey)) — *Core Architecture & Implementation* (`govinddubeycse@gmail.com`)
+* **Govind Dubey** ([@MrGovindDubey](https://github.com/MrGovindDubey)) — *Core Architecture & Implementation* (`govinddubeycse+pqblocks@gmail.com`)
 * **PQBlocks Community** — *Security Reviews and Standards Alignment*
 
 ---
@@ -187,7 +187,7 @@ runAudit().catch(console.error);
 
 Please report security issues or vulnerabilities via:
 1. **GitHub Security Advisory**: [Report a Vulnerability](https://github.com/PQBlocks/cnsa2-cbom-auditor/security/advisories/new)
-2. **Author Direct Email**: Govind Dubey (`govinddubeycse@gmail.com`)
+2. **Author Direct Email**: Govind Dubey (`govinddubeycse+pqblocks@gmail.com`)
 3. **GitHub Issues**: Non-sensitive defect tracking at [Issues](https://github.com/PQBlocks/cnsa2-cbom-auditor/issues)
 
 ---

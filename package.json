@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "description": "CycloneDX 1.6 Cryptographic Bill of Materials (CBOM) generator, validator, and comparator for NSA CNSA 2.0 and NIST PQC migration standards.",
   "license": "Apache-2.0",
-  "author": "Govind Dubey <govinddubeycse@gmail.com> (https://github.com/MrGovindDubey)",
+  "author": "Govind Dubey <govinddubeycse+pqblocks@gmail.com> (https://github.com/MrGovindDubey)",
   "contributors": [
-    "Govind Dubey <govinddubeycse@gmail.com> (https://github.com/MrGovindDubey)"
+    "Govind Dubey <govinddubeycse+pqblocks@gmail.com> (https://github.com/MrGovindDubey)"
   ],
   "homepage": "https://pqblocks.github.io/packages/cnsa2-cbom-auditor/",
   "repository": {
